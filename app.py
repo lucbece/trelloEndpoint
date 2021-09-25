@@ -18,7 +18,9 @@ def trelloticket():
 
     elif type == "task":
         ticket = cards.Task(data["title"],data["category"])
-
+    else:
+         return Response("Bad request", status=400,)    
+        
     ticket.create_trello_card()
 
     return jsonify({'result': 'Success!'})
